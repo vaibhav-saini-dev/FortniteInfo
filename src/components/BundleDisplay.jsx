@@ -11,7 +11,7 @@ export default function BundleDisplay({ shopEntries, rarityBackground }) {
                 if (entry?.bundle != null) {
                     const bundle = entry?.bundle;
 
-                    const items = entry?.brItems ?? entry?.items ?? [];
+                    const items = entry?.brItems ?? entry?.cars ?? entry?.items ?? [];
                     const first = items[0];
 
                     const rarity = first?.rarity?.value ?? first?.series?.value ?? "common";
