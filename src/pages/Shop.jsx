@@ -53,19 +53,22 @@ export default function Shop() {
         async function getShopData() {
             setError(null)
             try {
-                const response = await fetch('https://fortnite-api.com/v2/shop/br');
+                const response = await fetch('https://fortnite-api.com/v2/shop');
                 if (!response.ok) {
                     throw new Error('Failed to fetch data');
                 }
                 const data = await response.json();
-                let dateString = data?.data?.date
 
-                setShopEntries(data?.data?.featured?.entries || [])
-                
-                if (dateString.length > 0) {
+                const dateString = data?.data?.date ?? "";
+                const entries =
+                    data?.data?.entries ??                // new shape (new endpoint)
+                    data?.data?.featured?.entries ?? [];  // old shape (old endpoint)
+
+                setShopEntries(entries);
+
+                if (dateString) {
                     setShopDate(`(${dateString.split("T")[0]})`);
                 }
-                
             } catch (error) {
                 setError("An error occurred while retrieving shop data.");
             }

@@ -8,10 +8,18 @@ export default function BundleDisplay({ shopEntries, rarityBackground }) {
     return (
         <>
             {shopEntries?.map((entry, index) => {
-                if (entry.bundle !== null) {
+                if (entry?.bundle != null) {
                     const bundle = entry?.bundle;
-                    const rarity = entry?.items[0]?.rarity?.value ?? 'common';
-                    const displayRarity = entry?.items[0]?.rarity?.displayValue ?? 'N/A';
+
+                    const items = entry?.brItems ?? entry?.items ?? [];
+                    const first = items[0];
+
+                    const rarity = first?.rarity?.value ?? first?.series?.value ?? "common";
+                    const displayRarity =
+                        first?.rarity?.displayValue ??
+                        first?.series?.value ??
+                        "N/A";
+
                     let priceDifference = 0;
 
                     if (entry?.regularPrice && entry?.finalPrice) {
@@ -21,12 +29,13 @@ export default function BundleDisplay({ shopEntries, rarityBackground }) {
                     return (
 
                         <MemoizedCardInfo
-                            key={entry?.id ?? index}
+                            key={entry?.offerId ?? entry?.id ?? index}
                             backgroundIMG={rarityBackground[rarity] || common_background}
                             image={bundle?.image ?? unknownIMG}
                             title={bundle?.name ?? 'Name: N/A'}
-                            text={bundle?.info ?? 'Description: N/A'}
+                            text={bundle?.info ?? 'N/A'}
                             displayRarity={displayRarity}
+                            itemType={"Bundle"}
                             priceDifference={priceDifference}
                             price={entry?.finalPrice ?? 'Price: N/A'}
                         />
