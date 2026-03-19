@@ -14,7 +14,7 @@ function Home() {
             <footer>
                 <div className="parentFooterText">
                     <div className="footerText">
-                        <p> Made by: <a href="https://github.com/MochaWaffle">MochaWaffle</a> on GitHub</p>
+                        <p> Made by: <a href="https://github.com/vaibhav-saini-dev">Vaibhav Saini</a> on GitHub</p>
                     </div>
                 </div>
             </footer>
