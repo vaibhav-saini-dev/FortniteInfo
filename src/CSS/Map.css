@@ -1,12 +1,16 @@
 .mapContainer {
-	margin: auto;
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
+
 
 .mapContainer img {
 	width: 800px;
 	height: 700px;
-	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.764), 0 6px 20px 0 rgba(0, 0, 0, 0.75);
+	
 	transition: all .5s ease;
+	border-radius: 18px;
 }
 
 .mapContainer img:hover {

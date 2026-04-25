@@ -1,78 +1,105 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+:root {
+  --bg: #071225;
+  --bg-2: #082f66;
+  --surface: rgba(255, 255, 255, 0.08);
+  --surface-strong: rgba(255, 255, 255, 0.14);
+  --text: #f8fbff;
+  --muted: #b9c7dc;
+  --accent: #38d5ff;
+  --accent-2: #7c5cff;
+  --danger: #ff4d6d;
+  --success: #35f29a;
+  --radius: 24px;
+  --shadow: 0 24px 80px rgba(0, 0, 0, 0.35);
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-html, body {
-  font-family: 'Roboto', sans-serif;
-  background-color: #086BBE;
-  color: white;
-  background: url("./assets/Images/Fortnite_Wallpaper_4.jpg") no-repeat center center fixed;
-  background-size: cover;
+html {
+  min-height: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100%;
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  color: var(--text);
   line-height: 1.6;
+  background:
+    radial-gradient(circle at 20% 15%, rgba(56, 213, 255, 0.32), transparent 28%),
+    radial-gradient(circle at 80% 20%, rgba(124, 92, 255, 0.22), transparent 25%),
+    linear-gradient(135deg, var(--bg), var(--bg-2) 55%, var(--bg));
+  background-attachment: fixed;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.045) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.75), transparent 85%);
+}
+
+button,
+input {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+img {
+  max-width: 100%;
+  display: block;
 }
 
 .container {
-  margin: 1rem;
+  width: min(1180px, calc(100% - 2rem));
+  margin: 0 auto;
+  padding-top: 7rem;
+  padding-bottom: 3rem;
   text-align: center;
-  margin-top: 7%;
+}
+
+.containerResize {
+  margin-top: 0;
 }
 
 .errorText {
-  color: rgb(215, 3, 3);
+  color: var(--danger);
+  font-weight: 700;
 }
 
-a:link {
-  color: #ffd300;
+a,
+a:link,
+a:visited {
+  color: var(--accent);
 }
 
-/*** Container Responsive Design ***/
-@media only screen and (max-width: 1380px) {
-  .containerResize {
-    margin-top:10%;
+a:hover {
+  color: #9aefff;
+}
+
+@media only screen and (max-width: 768px) {
+  .container {
+    width: min(100% - 1rem, 1180px);
+    padding-top: 6.25rem;
   }
 }
 
-@media only screen and (max-width: 1000px) {
-  .containerResize {
-    margin-top: 15%;
-  }
-}
-
-@media only screen and (max-width: 620px) {
-  .containerResize {
-    margin-top: 20%;
-  }
-}
-
-@media only screen and (max-width: 500px) {
-  .containerResize {
-    margin-top: 25%;
-  }
-}
-
-@media only screen and (max-width: 380px) {
-  .containerResize {
-    margin-top: 30%;
-  }
-}
-
-@media only screen and (max-width: 335px) {
-  .containerResize {
-    margin-top: 35%;
-  }
-}
-
-@media only screen and (max-width: 300px) {
-  .containerResize {
-    margin-top: 40%;
-  }
-}
-
-@media only screen and (max-width: 270px){
-  .containerResize {
-    margin-top: 45%;
+@media only screen and (max-width: 480px) {
+  .container {
+    padding-top: 5.75rem;
   }
 }

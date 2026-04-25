@@ -32,7 +32,7 @@ export default function Map() {
 
     return (
         <>
-            <div className="containerResize">
+            <div className="containerResize pt-4">
                 <Suspense fallback={
                     <div className="parentHomeContainer">
                         <div className="homeContainer">

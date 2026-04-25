@@ -1,66 +1,98 @@
 .parentCodeContainer {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	height: 75vh;
+  min-height: calc(100vh - 10rem);
+  display: grid;
+  place-items: center;
 }
 
-.codeInput {
-	border: none;
-	padding: 10px;
-	margin-right: 10px;
-	font-size: 100%;
-	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.764), 0 6px 20px 0 rgba(0, 0, 0, 0.75);
-}
-
-.codeSubmit {
-	border: none;
-	padding: 10px;
-	font-size: 100%;
-	background-color: #3e4040;
-	color: white;
-	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.764), 0 6px 20px 0 rgba(0, 0, 0, 0.75);
-	transition: all .5s ease;
-}
-
-.codeSubmit:hover {
-	background-color: #696d6d;
-	color: white;
-	transform: scale(1.05);
-	transition: all .5s ease;
-
-}
-
-.codeSubmit:active {
-	background-color: #9a9c9c;
-	color: white;
+.codeContainer {
+  width: min(540px, 100%);
+  padding: clamp(1.25rem, 5vw, 2.25rem);
+  border-radius: var(--radius);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: var(--surface);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  box-shadow: var(--shadow);
 }
 
 .creatorCodeTitle {
-	margin-bottom: 15px;
-	color: white;
+  margin-bottom: 1.5rem;
+  color: var(--text);
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 1.1;
+}
+
+.codeInput {
+  width: min(290px, 100%);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 16px;
+  padding: 0.9rem 1rem;
+  margin-right: 0.65rem;
+  background: rgba(255, 255, 255, 0.94);
+  color: #071225;
+  outline: none;
+  box-shadow: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.codeInput:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 4px rgba(56, 213, 255, 0.18);
+}
+
+.codeSubmit {
+  border: none;
+  border-radius: 16px;
+  padding: 0.9rem 1.15rem;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  color: white;
+  font-weight: 800;
+  box-shadow: 0 18px 35px rgba(56, 213, 255, 0.18);
+  transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+.codeSubmit:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.08);
+}
+
+.codeSubmit:active {
+  transform: translateY(0);
 }
 
 .codeText {
-	margin-top: 25px;
+  min-height: 2rem;
+  margin-top: 1.5rem;
+  color: var(--muted);
+  font-weight: 600;
 }
 
 .Valid {
-	color: rgb(0, 255, 0);
-	font-size: 18px;
+  color: var(--success);
+  font-size: 1.1rem;
+  font-weight: 800;
 }
 
 .Invalid {
-	color: rgb(255, 55, 55);
-	font-size: 18px;
+  color: var(--danger);
+  font-size: 1.1rem;
+  font-weight: 800;
 }
 
-@media only screen and (max-width: 320px) {
-	.codeInput {
-		margin-bottom: 15px;
-	}
+@media (max-width: 520px) {
+  .codeContainer {
+    width: min(100%, 380px);
+    margin: 0 auto;
+  }
 
-	.codeText {
-		margin-bottom: 20px;
-	}
+  .codeInput,
+  .codeSubmit {
+    width: 100%;
+  }
+
+  .codeSubmit {
+    margin-top: 0.6rem;
+  }
 }
