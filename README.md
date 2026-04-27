@@ -1,6 +1,6 @@
 # 🎮 FortniteInfo
 
-A modern Fortnite companion web app that displays the **current map, live news, item shop**, and allows users to **validate creator codes** — all in one place.
+A modern Fortnite companion web app that displays the **current map, live news, item shop**, and allows users to **validate creator codes**.
 
 ---
 
